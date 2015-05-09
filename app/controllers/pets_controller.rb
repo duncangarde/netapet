@@ -5,11 +5,19 @@ class PetsController < ApplicationController
   # GET /pets.json
   def index
     @pets = Pet.all
+      respond_to do |format|
+        format.json {render json: @pet_categories}
+        format.html 
+    end
   end
 
   # GET /pets/1
   # GET /pets/1.json
   def show
+    respond_to do |format|
+      format.json {render json: @pet}
+      format.html 
+    end
   end
 
   # GET /pets/new
